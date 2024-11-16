@@ -1,0 +1,10 @@
+* text=auto
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+
+*.js   text=auto
+*.css  text=auto
+*.jpg  binary
+/src/* linguist-language=JavaScript
