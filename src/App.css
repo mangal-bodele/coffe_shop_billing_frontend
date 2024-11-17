@@ -1,0 +1,278 @@
+/* General Styles (Typography, Body, Container) */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f1e1; /* Light beige background */
+  color: #3c3c3c; /* Dark gray text */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  color: #6f4f28; /* Coffee brown */
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+/* Navbar Styling */
+.navbar-coffee {
+  background-color: #3e2723; /* Dark coffee brown */
+  padding: 8px 20px; /* Reduced padding for a smaller height */
+  position: fixed; /* Fix navbar to the top */
+  top: 0; /* Align it to the top */
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 1000;
+}
+
+.navbar-coffee .navbar-nav .nav-link {
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-coffee .navbar-nav .nav-link:hover {
+  color: #6f4f28; /* Coffee brown on hover */
+}
+
+.navbar-coffee .navbar-nav .active {
+  color: #f4e1d2; /* Light beige for active link */
+}
+
+.navbar-coffee .navbar-toggler {
+  border-color: #6f4f28; /* Coffee brown border */
+}
+
+.navbar-coffee .form-control {
+  width: 200px;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.navbar-coffee .btn-outline-success {
+  border-color: #6f4f28;
+  color: #6f4f28;
+}
+
+.navbar-coffee .btn-outline-success:hover {
+  background-color: #6f4f28;
+  color: #fff;
+}
+
+/* Navbar base style */
+.navbar {
+  background-color: #693228; /* Dark coffee brown */
+  color: #fff;
+  padding: 8px 20px; /* Reduced padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px; /* Reduced padding for better proportion */
+  font-size: 1em; /* Adjust font size for better alignment */
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #6f4f28; /* Highlight on hover */
+  border-radius: 5px;
+}
+
+/* Button Styling */
+button {
+  background-color: #6f4f28; /* Coffee brown */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e2723; /* Dark brown on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Card Styling for Menu or Product Display */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card .price {
+  color: #6f4f28; /* Coffee brown */
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #3e2723; /* Dark brown */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 1em;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styling */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  placeholder: 'Enter your details'; /* Optional placeholder */
+}
+
+input[type="submit"] {
+  background-color: #6f4f28; /* Coffee brown */
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e2723;
+}
+
+/* Hero Section Styling */
+.hero {
+  background-image: url('./Components/assets/Coffee_back.jpg'); /* Replace with your coffee-themed image */
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero h1 {
+  font-size: 3em;
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.5em;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  background-color: #6f4f28;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #3e2723;
+}
+
+/* Mobile-First Styling */
+@media (max-width: 768px) {
+  .navbar {
+    font-size: 1em;
+  }
+
+  .card {
+    margin: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+
+  .hero button {
+    font-size: 1em;
+  }
+}

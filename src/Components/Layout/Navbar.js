@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-coffee">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Navbar
+            Coffee Shop
           </NavLink>
           <button
             className="navbar-toggler"
@@ -29,7 +29,7 @@ function Navbar() {
                   }
                   to="/"
                 >
-                  Home
+                  Menu
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -37,67 +37,23 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
-                  to="/link"
+                  to="/about"
                 >
-                  Link
+                  About Us
                 </NavLink>
-              </li>
-              <li className="nav-item dropdown">
-                <NavLink
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <NavLink className="dropdown-item" to="#">
-                      Action
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="dropdown-item" to="#">
-                      Another action
-                    </NavLink>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <NavLink className="dropdown-item" to="#">
-                      Something else here
-                    </NavLink>
-                  </li>
-                </ul>
               </li>
               <li className="nav-item">
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "nav-link disabled active" : "nav-link disabled"
+                    isActive ? "nav-link active" : "nav-link"
                   }
-                  to="#"
-                  tabIndex="-1"
-                  aria-disabled="true"
+                  to="/contact"
                 >
-                  Disabled
+                  Contact
                 </NavLink>
               </li>
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a

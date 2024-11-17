@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { toast } from "react-toastify";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cartItems, totalAmount, clearCart, removeItemFromCart, updateItemQuantity } = useCart();
+  const { cartItems, totalAmount, removeItemFromCart, updateItemQuantity } =
+    useCart();
 
-  const increaseQuantity = (item) => updateItemQuantity(item.id, item.quantity + 1);
+  const increaseQuantity = (item) =>
+    updateItemQuantity(item.id, item.quantity + 1);
 
   const decreaseQuantity = (item) => {
     if (item.quantity > 1) {
@@ -35,13 +36,13 @@ const Cart = () => {
   const goToMenu = () => navigate("/");
 
   return (
-    <div className="container py-4">
+    <div className="container my-5">
       <h2 className="text-center mb-4">Your Shopping Cart</h2>
       {cartItems.length > 0 ? (
         <>
           <div className="table-responsive">
-            <table className="table table-striped">
-              <thead>
+            <table className="table table-striped align-middle">
+              <thead className="table-light">
                 <tr>
                   <th>Item</th>
                   <th>Price</th>
@@ -55,7 +56,7 @@ const Cart = () => {
                   <tr key={item.id}>
                     <td>{item.name}</td>
                     <td>₹{item.price}</td>
-                    <td>
+                    <td className="d-flex align-items-center">
                       <button
                         className="btn btn-outline-secondary btn-sm"
                         onClick={() => decreaseQuantity(item)}
@@ -63,7 +64,7 @@ const Cart = () => {
                       >
                         -
                       </button>
-                      <span className="mx-2">{item.quantity}</span>
+                      <span className="mx-3">{item.quantity}</span>
                       <button
                         className="btn btn-outline-secondary btn-sm"
                         onClick={() => increaseQuantity(item)}
@@ -85,18 +86,14 @@ const Cart = () => {
               </tbody>
             </table>
           </div>
-          <div className="d-flex justify-content-between">
-            <button
-              onClick={clearCart}
-              className="btn btn-warning"
-              disabled={cartItems.length === 0}
-            >
-              Clear Cart
+          <div className="d-flex justify-content-between align-items-center mt-4">
+            <button onClick={goToMenu} className="btn btn-primary">
+              Back to Menu
             </button>
             <h3>Total Amount: ₹{totalAmount.toFixed(2)}</h3>
             <button
               onClick={proceedToPayment}
-              className="btn btn-success"
+              className="btn btn-success btn-lg rounded-pill"
               disabled={cartItems.length === 0}
             >
               Proceed to Payment
@@ -104,16 +101,24 @@ const Cart = () => {
           </div>
         </>
       ) : (
-        <div className="text-center">
-          <p>Your cart is empty. Let’s add some coffee!</p>
+        <div className="text-center my-5">
+          <p className="fs-4">Your cart is empty. Let’s add some coffee!</p>
           <img
             src="/images/empty-cart.png"
             alt="Empty Cart"
-            className="img-fluid"
-            style={{ maxHeight: "200px" }}
+            className="img-fluid my-4"
+            style={{ maxWidth: "300px" }}
           />
-          <button onClick={goToMenu} className="btn btn-primary mt-3">
-            Browse Menu
+          <button
+            onClick={goToMenu}
+            className=" btn btn-primary btn-lg rounded-pill"
+            style={{
+              fontSize: "1.2rem" /* Adjust the font size */,
+              padding: "12px 30px" /* Adjust padding if needed */,
+              borderRadius: "50px" /* Ensure rounded corners */,
+            }}
+          >
+            Back to Menu
           </button>
         </div>
       )}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -22,10 +21,13 @@ const Payment = () => {
 
     try {
       setLoading(true);
-      const orderResponse = await axios.post("http://127.0.0.1:8000/api/v1/create-payment/", {
-        cart_items: cartItems,
-        total_amount: totalAmount,
-      });
+      const orderResponse = await axios.post(
+        "http://127.0.0.1:8000/api/v1/create-payment/",
+        {
+          cart_items: cartItems,
+          total_amount: totalAmount,
+        }
+      );
 
       const { orderId, razorpayKey, currency } = orderResponse.data;
 
@@ -47,7 +49,7 @@ const Payment = () => {
 
             const { transaction_id } = verificationResponse.data;
             if (transaction_id) {
-              navigate(`/success/${transaction_id}`)
+              navigate(`/success/${transaction_id}`);
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
@@ -68,12 +70,12 @@ const Payment = () => {
   };
 
   return loading ? (
-    <div className="text-center py-5">
+    <div className="payment-loading text-center py-5">
       <p>Processing your payment...</p>
       <div className="spinner-border" role="status"></div>
     </div>
   ) : (
-    <div className="container py-5">
+    <div className="payment-container container py-5">
       <h2 className="text-center mb-4">Payment</h2>
       <div className="mb-4">
         <h4>Order Summary</h4>
@@ -110,7 +112,7 @@ const Payment = () => {
       <div className="text-center">
         <button
           onClick={handlePayment}
-          className="btn btn-success btn-lg"
+          className="btn btn-success btn-lg payment-button"
           disabled={loading || !cartItems.length}
         >
           Pay Now

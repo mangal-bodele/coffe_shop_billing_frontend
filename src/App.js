@@ -1,13 +1,15 @@
 import React from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cart from './Components/CoffeeApp/Cart';
-import Menu from './Components/CoffeeApp/Menu';
-import Payment from './Components/CoffeeApp/Payment';
-import Success from './Components/CoffeeApp/Success';  // Added the import for Success
-import Failure from './Components/CoffeeApp/Failure';
-import useCart from './Components/Hooks/useCart';
+import Cart from "./Components/CoffeeApp/Cart";
+import Menu from "./Components/CoffeeApp/Menu";
+import Payment from "./Components/CoffeeApp/Payment";
+import Success from "./Components/CoffeeApp/Success";
+import Failure from "./Components/CoffeeApp/Failure";
+import useCart from "./Components/Hooks/useCart";
 import Navbar from "./Components/Layout/Navbar";
+import Footer from "./Components/Layout/Footer";
 
 function App() {
   const {
@@ -21,9 +23,9 @@ function App() {
 
   return (
     <Router>
-      {/* Navbar Component for consistent navigation */}
+      {/* Navbar for consistent navigation */}
       <Navbar />
-      
+
       <div className="container mt-4">
         <Routes>
           {/* Menu route */}
@@ -50,26 +52,21 @@ function App() {
           <Route
             path="/payment"
             element={
-              <Payment
-                totalAmount={totalAmount}
-                cartItems={cartItems}
-              />
+              <Payment totalAmount={totalAmount} cartItems={cartItems} />
             }
           />
 
-          {/* Success route - Added the Success page route */}
-          <Route
-            path="/success/:transactionId"
-            element={<Success />}
-          />
+          {/* Success route */}
+          <Route path="/success/:transactionId" element={<Success />} />
 
           {/* Failure route */}
-          <Route
-            path="/failure"
-            element={<Failure />}
-          />
+          <Route path="/failure" element={<Failure />} />
+
+          {/* 404 Page Not Found */}
+          <Route path="*" element={<h2 className="text-center">404 - Page Not Found</h2>} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }
