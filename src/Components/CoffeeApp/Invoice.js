@@ -1,6 +1,8 @@
+// src/components/Invoice.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { GET_INVOICE_URL } from "../config/apiConfig";
 
 const Invoice = () => {
   const { transactionId } = useParams(); // Get transactionId from URL
@@ -15,9 +17,7 @@ const Invoice = () => {
         setInvoiceData(null);
 
         // Fetch invoice data from the backend based on the transaction ID
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/v1/invoice/${transactionId}/`
-        );
+        const response = await axios.get(GET_INVOICE_URL(transactionId));
         setInvoiceData(response.data);
       } catch (err) {
         setError(err.response?.data?.error || "An error occurred");

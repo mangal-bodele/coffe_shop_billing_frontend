@@ -1,6 +1,8 @@
+// src/components/Payment.js
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { CREATE_PAYMENT_URL, VERIFY_PAYMENT_URL } from "../config/apiConfig";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -21,13 +23,10 @@ const Payment = () => {
 
     try {
       setLoading(true);
-      const orderResponse = await axios.post(
-        "http://127.0.0.1:8000/api/v1/create-payment/",
-        {
-          cart_items: cartItems,
-          total_amount: totalAmount,
-        }
-      );
+      const orderResponse = await axios.post(CREATE_PAYMENT_URL, {
+        cart_items: cartItems,
+        total_amount: totalAmount,
+      });
 
       const { orderId, razorpayKey, currency } = orderResponse.data;
 
@@ -38,14 +37,11 @@ const Payment = () => {
         order_id: orderId,
         handler: async (response) => {
           try {
-            const verificationResponse = await axios.post(
-              "http://127.0.0.1:8000/api/v1/verify-payment/",
-              {
-                payment_id: response.razorpay_payment_id,
-                order_id: orderId,
-                signature: response.razorpay_signature,
-              }
-            );
+            const verificationResponse = await axios.post(VERIFY_PAYMENT_URL, {
+              payment_id: response.razorpay_payment_id,
+              order_id: orderId,
+              signature: response.razorpay_signature,
+            });
 
             const { transaction_id } = verificationResponse.data;
             if (transaction_id) {
