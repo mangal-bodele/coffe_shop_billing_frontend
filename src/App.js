@@ -10,6 +10,8 @@ import Failure from "./Components/CoffeeApp/Failure";
 import useCart from "./Components/Hooks/useCart";
 import Navbar from "./Components/Layout/Navbar";
 import Footer from "./Components/Layout/Footer";
+import Hero from "./Components/Layout/Hero";
+import Invoice from "./Components/CoffeeApp/Invoice";
 
 function App() {
   const {
@@ -25,6 +27,7 @@ function App() {
     <Router>
       {/* Navbar for consistent navigation */}
       <Navbar />
+      <Hero />
 
       <div className="container mt-4">
         <Routes>
@@ -58,15 +61,21 @@ function App() {
 
           {/* Success route */}
           <Route path="/success/:transactionId" element={<Success />} />
+          <Route path="/invoice/:transactionId" element={<Invoice />} />
 
           {/* Failure route */}
           <Route path="/failure" element={<Failure />} />
+          
 
           {/* 404 Page Not Found */}
-          <Route path="*" element={<h2 className="text-center">404 - Page Not Found</h2>} />
+          <Route
+            path="*"
+            element={<h2 className="text-center">404 - Page Not Found</h2>}
+          />
         </Routes>
       </div>
-      <Footer/>
+
+      <Footer />
     </Router>
   );
 }

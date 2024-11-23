@@ -2,14 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 import { toast } from "react-toastify";
+import EmptyCart from "../assets/empty-cart.png"; // Import your Empty Cart SVG
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cartItems, totalAmount, removeItemFromCart, updateItemQuantity } =
-    useCart();
+  const { cartItems, totalAmount, removeItemFromCart, updateItemQuantity } = useCart();
 
-  const increaseQuantity = (item) =>
-    updateItemQuantity(item.id, item.quantity + 1);
+  const increaseQuantity = (item) => updateItemQuantity(item.id, item.quantity + 1);
 
   const decreaseQuantity = (item) => {
     if (item.quantity > 1) {
@@ -87,7 +86,7 @@ const Cart = () => {
             </table>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-4">
-            <button onClick={goToMenu} className="btn btn-primary">
+            <button onClick={goToMenu} className="btn btn-primary btn-lg rounded-pill">
               Back to Menu
             </button>
             <h3>Total Amount: ₹{totalAmount.toFixed(2)}</h3>
@@ -102,22 +101,18 @@ const Cart = () => {
         </>
       ) : (
         <div className="text-center my-5">
-          <p className="fs-4">Your cart is empty. Let’s add some coffee!</p>
+          {/* Empty Cart SVG */}
           <img
-            src="/images/empty-cart.png"
+            src={EmptyCart}
             alt="Empty Cart"
             className="img-fluid my-4"
             style={{ maxWidth: "300px" }}
           />
+          <p className="fs-4">Your cart is empty. Let’s add some coffee!</p>
           <button
             onClick={goToMenu}
-            className=" btn btn-primary btn-lg rounded-pill"
-            style={{
-              fontSize: "1.2rem" /* Adjust the font size */,
-              padding: "12px 30px" /* Adjust padding if needed */,
-              borderRadius: "50px" /* Ensure rounded corners */,
-            }}
-          >
+            className="btn btn-primary btn-lg rounded-pill"
+            >
             Back to Menu
           </button>
         </div>

@@ -1,10 +1,11 @@
 /* General Styles (Typography, Body, Container) */
 body {
   font-family: 'Arial', sans-serif;
+  font-size: x-large;
   margin: 0;
   padding: 0;
   background-color: #f4f1e1; /* Light beige background */
-  color: #3c3c3c; /* Dark gray text */
+  color: #0b0606; /* Dark gray text */
 }
 
 .container {
@@ -34,75 +35,96 @@ h3 {
   font-size: 1.5em;
 }
 
-/* Navbar Styling */
+/* Updated Navbar Styling */
 .navbar-coffee {
   background-color: #3e2723; /* Dark coffee brown */
-  padding: 8px 20px; /* Reduced padding for a smaller height */
-  position: fixed; /* Fix navbar to the top */
-  top: 0; /* Align it to the top */
-  width: 100%; /* Ensure it spans the full width */
+  border-bottom: 2px solid #6f4f28; /* Subtle border for definition */
+  padding: 10px 20px; /* Comfortable padding for proportions */
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
-.navbar-coffee .navbar-nav .nav-link {
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 1.1em;
-  font-weight: 600;
+.navbar-coffee .navbar-brand {
+  color: #f4e1d2; /* Light beige brand color */
+  font-family: 'Georgia', serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
+.navbar-coffee .navbar-brand:hover {
+  color: #c7a17a; /* Softer brown shade */
+}
+
+.navbar-coffee .navbar-nav .nav-link {
+  color: #f4e1d2; /* Light beige links */
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
 .navbar-coffee .navbar-nav .nav-link:hover {
-  color: #6f4f28; /* Coffee brown on hover */
+  background-color: #6f4f28; /* Coffee brown highlight */
+  color: #ffffff; /* Bright text for better contrast */
 }
 
 .navbar-coffee .navbar-nav .active {
-  color: #f4e1d2; /* Light beige for active link */
+  background-color: #6f4f28; /* Coffee brown for active links */
+  color: #ffffff;
 }
 
 .navbar-coffee .navbar-toggler {
-  border-color: #6f4f28; /* Coffee brown border */
+  border-color: #f4e1d2; /* Light beige border for the toggler */
 }
 
-.navbar-coffee .form-control {
-  width: 200px;
-  border-radius: 5px;
-  padding: 8px;
-}
-
-.navbar-coffee .btn-outline-success {
-  border-color: #6f4f28;
-  color: #6f4f28;
-}
-
-.navbar-coffee .btn-outline-success:hover {
-  background-color: #6f4f28;
-  color: #fff;
-}
-
-/* Navbar base style */
-.navbar {
-  background-color: #693228; /* Dark coffee brown */
-  color: #fff;
-  padding: 8px 20px; /* Reduced padding */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensure it stays above other elements */
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 15px; /* Reduced padding for better proportion */
-  font-size: 1em; /* Adjust font size for better alignment */
+.navbar-coffee .navbar-toggler-icon {
+  background-color: #f4e1d2; /* Light beige toggler icon */
+  width: 24px;
+  height: 3px;
+  display: block;
+  margin: 5px auto;
+  border-radius: 2px;
   transition: background-color 0.3s ease;
 }
 
-.navbar a:hover {
-  background-color: #6f4f28; /* Highlight on hover */
-  border-radius: 5px;
+.navbar-coffee .navbar-toggler-icon:hover {
+  background-color: #c7a17a; /* Softer brown hover effect */
+}
+
+.navbar-coffee .btn-login,
+.navbar-coffee .btn-signup {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-coffee .btn-login {
+  background-color: #ffffff;
+  color: #3e2723; /* Dark brown for login button */
+  border: 1px solid #3e2723;
+}
+
+.navbar-coffee .btn-login:hover {
+  background-color: #3e2723;
+  color: #ffffff;
+}
+
+.navbar-coffee .btn-signup {
+  background-color: #6f4f28; /* Coffee brown for signup button */
+  color: #ffffff;
+}
+
+.navbar-coffee .btn-signup:hover {
+  background-color: #3e2723;
+  color: #ffffff;
 }
 
 /* Button Styling */
@@ -216,11 +238,11 @@ input[type="submit"]:hover {
 
 /* Hero Section Styling */
 .hero {
-  background-image: url('./Components/assets/Coffee_back.jpg'); /* Replace with your coffee-themed image */
+  background-image: url('./Components/assets/coffee-hero.jpg'); /* Replace with your coffee-themed image */
   background-size: cover;
   background-position: center;
-  height: 80vh;
-  color: white;
+  height: 25vh;
+  color: rgb(45, 34, 20);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -235,7 +257,7 @@ input[type="submit"]:hover {
 }
 
 .hero p {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 300;
   margin-bottom: 20px;
 }

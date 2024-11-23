@@ -1,18 +1,14 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import successLogo from "../assets/successLogo.png"; 
+import successLogo from '../assets/successLogo.png'
 
 const Success = () => {
-  const { transactionId } = useParams();
+  const { transactionId } = useParams(); // Get the transaction ID from the URL
   const navigate = useNavigate();
 
-  // Backend base URL
-  const backendUrl =
-    process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000";
-
-  const handleDownloadInvoice = () => {
-    // Open the invoice in a new tab
-    window.open(`${backendUrl}/api/v1/invoice/${transactionId}/`, "_blank");
+  const handleGenerateInvoice = () => {
+    // Redirect to the Invoice page, passing the transaction ID
+    navigate(`/invoice/${transactionId}`);
   };
 
   return (
@@ -21,25 +17,19 @@ const Success = () => {
         src={successLogo}
         alt="Success Logo"
         className="success-logo mb-4"
+        width={200}
+        height={200}
       />
-      <h2 className="text-success">Payment Successful!</h2>
-      <p className="transaction-text">
-        Your transaction ID is <strong>{transactionId}</strong>.
+      <h1 className="text-success">Payment Successful!</h1>
+      <p className="lead">
+        Thank you for your payment. Your transaction ID is: <strong>{transactionId}</strong>
       </p>
-      <div className="mt-4">
-        <button
-          className="btn btn-primary me-3"
-          onClick={handleDownloadInvoice}
-        >
-          Download Invoice
-        </button>
-        <button
-          className="btn btn-secondary"
-          onClick={() => navigate("/")}
-        >
-          Continue Shopping
-        </button>
-      </div>
+      <button
+        className="btn btn-primary btn-lg mt-4"
+        onClick={handleGenerateInvoice}
+      >
+        Generate Invoice
+      </button>
     </div>
   );
 };
