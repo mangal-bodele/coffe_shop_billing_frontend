@@ -12,6 +12,8 @@ const Failure = () => {
         src={PaymentFailure} 
         alt="Payment Failed" 
         className="img-fluid failure-svg" 
+        height={100}
+        width={100}
       />
 
       {/* Payment Failure Message */}

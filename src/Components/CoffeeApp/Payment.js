@@ -1,14 +1,15 @@
-// src/components/Payment.js
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { CREATE_PAYMENT_URL, VERIFY_PAYMENT_URL } from "../config/apiConfig";
 
 const Payment = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { cartItems = [], totalAmount = 0 } = location.state || {};
   const [loading, setLoading] = useState(false);
+
+  const CREATE_PAYMENT_URL = "http://127.0.0.1:8000/api/v1/create-payment/"; // Replace with your backend's actual URL
+  const VERIFY_PAYMENT_URL = "http://127.0.0.1:8000/api/v1/verify-payment/"; // Replace with your backend's actual URL
 
   const handlePayment = async () => {
     if (!cartItems.length || totalAmount <= 0) {
@@ -32,7 +33,7 @@ const Payment = () => {
 
       const options = {
         key: razorpayKey,
-        amount: totalAmount * 100,
+        amount: totalAmount * 100, // Convert to paise
         currency,
         order_id: orderId,
         handler: async (response) => {
@@ -45,7 +46,8 @@ const Payment = () => {
 
             const { transaction_id } = verificationResponse.data;
             if (transaction_id) {
-              navigate(`/success/${transaction_id}`);
+              // Pass the transaction_id (razorpay_payment_id) to success page
+              navigate(`/success/${response.razorpay_payment_id}`);
             }
           } catch (error) {
             console.error("Payment verification failed:", error);

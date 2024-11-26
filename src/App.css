@@ -298,3 +298,43 @@ input[type="submit"]:hover {
     font-size: 1em;
   }
 }
+
+.invoice-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.invoice-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-details p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.generate-pdf-btn {
+  background-color: #ED3CCA;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.generate-pdf-btn:hover {
+  background-color: #d12aab;
+}
+
+.transaction-details {
+  margin-top: 20px;
+}
+
+.transaction-details h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

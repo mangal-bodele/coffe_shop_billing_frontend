@@ -5,13 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Components/CoffeeApp/Cart";
 import Menu from "./Components/CoffeeApp/Menu";
 import Payment from "./Components/CoffeeApp/Payment";
-import Success from "./Components/CoffeeApp/Success";
 import Failure from "./Components/CoffeeApp/Failure";
 import useCart from "./Components/Hooks/useCart";
 import Navbar from "./Components/Layout/Navbar";
 import Footer from "./Components/Layout/Footer";
 import Hero from "./Components/Layout/Hero";
-import Invoice from "./Components/CoffeeApp/Invoice";
+import Success from "./Components/CoffeeApp/Success";
 
 function App() {
   const {
@@ -59,13 +58,12 @@ function App() {
             }
           />
 
-          {/* Success route */}
           <Route path="/success/:transactionId" element={<Success />} />
-          <Route path="/invoice/:transactionId" element={<Invoice />} />
 
           {/* Failure route */}
           <Route path="/failure" element={<Failure />} />
-          
+
+          {/* Transaction details route */}
 
           {/* 404 Page Not Found */}
           <Route
